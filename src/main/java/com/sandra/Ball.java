@@ -5,17 +5,17 @@ import java.util.*;
 public class Ball extends Rectangle{
 
     Random random;
-    int xVelocity;
-    int yVelocity;
-    int initialSpeed = 3;
+    int xVelocity; // predkosc na osi x
+    int yVelocity; // predkosc na osi y
+    int initialSpeed = 4; // poczatkowa predkosc
 
     Ball(int x, int y, int width, int height){
         super(x,y,width,height);
         random = new Random();
-        int randomXDirection = random.nextInt(2);
-        if(randomXDirection == 0)
-            randomXDirection--;
-        setXDirection(randomXDirection*initialSpeed);
+        int randomXDirection = random.nextInt(2); // local variable dla pilku konstruktora
+        if(randomXDirection == 0)// pojdzie w lewo
+            randomXDirection--; //bedzie mniejsza niz zero
+        setXDirection(randomXDirection*initialSpeed); // zwiekszamy predkosci pilki
 
         int randomYDirection = random.nextInt(2);
         if(randomYDirection == 0)
@@ -34,8 +34,8 @@ public class Ball extends Rectangle{
         x += xVelocity;
         y += yVelocity;
     }
-    public void draw(Graphics g) {
+    public void draw(Graphics g) { // malujemy pilke
         g.setColor(Color.white);
-        g.fillOval(x, y, height, width);
+        g.fillOval(x, y, height, width); // pilka (kolo )
     }
 }
