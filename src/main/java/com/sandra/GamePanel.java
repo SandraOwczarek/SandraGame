@@ -137,4 +137,5 @@ public class GamePanel extends JPanel implements Runnable{ // implementacja Runn
             racket2.keyReleased(e);
         }
     }
+
 }
