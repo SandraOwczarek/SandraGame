@@ -26,7 +26,7 @@ public class GamePanel extends JPanel implements Runnable{ // implementacja Runn
         newBall();
         score = new Score(GAME_WIDTH,GAME_HEIGHT);
         this.setFocusable(true); // zawsze bedzie czuly na nacisk klawiszy
-        this.addKeyListener(new AL());// odpowie na nacisk klawisza (action listener)
+        this.addKeyListener(new ActionListener());// odpowie na nacisk klawisza (action listener)
         this.setPreferredSize(SCREEN_SIZE); // przekazac dimension
         gameThread = new Thread(this);
         gameThread.start();
@@ -127,7 +127,7 @@ public class GamePanel extends JPanel implements Runnable{ // implementacja Runn
             }
         }
     }
-    public class AL extends KeyAdapter{  //'action listener'
+    public class ActionListener extends KeyAdapter{  //'action listener'
         public void keyPressed(KeyEvent e) {
             racket1.keyPressed(e);
             racket2.keyPressed(e);
