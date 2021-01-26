@@ -34,11 +34,11 @@ public abstract class GameFrame extends JFrame implements ActionListener, KeyLis
         viewTheCode = new JMenu("Viewing the code");
         useIt.add(viewTheCode);
 
-
+        menuBar.add(exit);
         exit = new JMenu ("Exit");
         exit.setMnemonic(KeyEvent.VK_X);
 
-        menuBar.add(exit);
+
 
         seeItRun = new JMenu("Seeing it run");
         useIt.add(seeItRun);
@@ -62,7 +62,7 @@ public abstract class GameFrame extends JFrame implements ActionListener, KeyLis
         vtcSave.addActionListener(this);
         viewTheCode.add(vtcSave);
 
-        this.setJMenuBar(menuBar);
+
 
     }
 
