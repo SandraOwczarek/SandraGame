@@ -10,7 +10,6 @@ class MenuGame extends JFrame  {
     GamePanel panel; // canvas gdzie bedziemy malowac gre
     MenuGame() { // konstruktor
         JMenuBar mb=new JMenuBar();
-
         menu = new JMenu ("Menu");
         panel = new GamePanel(); // dodajemy rzeczy do naszej planszy
         this.add(panel);
@@ -22,7 +21,7 @@ class MenuGame extends JFrame  {
         this.setVisible(true); // by widziec gre
         this.setLocationRelativeTo(null); // gra pojawi sie po samym srodku naszego ekranu
         this.setJMenuBar(mb);
-       mb.add(menu);
+        mb.add(menu);
     }
 
 }
