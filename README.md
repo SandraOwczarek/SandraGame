@@ -7,7 +7,7 @@
  
 ...and here it is ! My first game in Java  🏓
 
-It's very simple and basically one rule : don't let other player to score you a goal !
+It's very simple and basically has one rule : don't let other player to score you a goal !
 
 Player Number 1 is using buttons "Q" to move ⬆️  & "A" to move ⬇️
 
