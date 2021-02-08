@@ -2,24 +2,53 @@ package com.sandra;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 
-class MenuGame extends JFrame  {
+class MenuGame extends JFrame implements ActionListener {
     JMenu menu, submenu;
-    JMenuItem i1, i2, i3, i4, i5;
+    JMenuItem btnLoad, btnSave, i3, i4, i6;
     GamePanel panel;
+
+
     MenuGame() {
 
-        JMenuBar mb=new JMenuBar();
-        menu = new JMenu ("Menu");
+        JMenuBar mb = new JMenuBar();
+        menu = new JMenu("Menu");
         submenu = new JMenu("Level ");
-        i1= new JMenuItem ("Open New Game");
-        i2= new JMenuItem ("Save game");
-        i3= new JMenuItem ("Easy");
-        i4= new JMenuItem ("Medium");
-        i5= new JMenuItem ("Hard");
-        menu.add(i1); menu.add(i2);
-        submenu.add(i3);submenu.add(i4); submenu.add(i5);
+
+        btnLoad = new JMenuItem("Load Game");
+        LoadOption load = new LoadOption();
+        btnLoad.addActionListener(load);
+
+        btnSave = new JMenuItem("Save game");
+        SaveOption save = new SaveOption();
+        btnSave.addActionListener(save);
+
+        i3 = new JMenuItem("Easy");
+        EasyOption Easy = new EasyOption();
+        i3.addActionListener(Easy);
+
+        i4 = new JMenuItem("Hard");
+        HardOption Hard = new HardOption();
+        i4.addActionListener(Hard);
+
+
+        i6 = new JMenuItem("Exit");
+        ExitOption exit = new ExitOption();
+        i6.addActionListener(exit);
+
+        menu.add(btnLoad);
+        menu.add(btnSave);
+        menu.add(i6);
+        submenu.add(i3);
+        submenu.add(i4);
+
         menu.add(submenu);
         panel = new GamePanel();
         this.add(panel);
@@ -34,4 +63,54 @@ class MenuGame extends JFrame  {
         mb.add(menu);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+
+    }
+
+    static class ExitOption implements ActionListener {
+        public void actionPerformed(ActionEvent Exit) {
+            System.exit(0);
+        }
+    }
+
+    static class SaveOption implements ActionListener  {
+        public void actionPerformed(ActionEvent Save) {
+            PrintWriter Scores= null;
+            try {
+                Scores = new PrintWriter("Score.txt");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            Scores.println("Score of last saved game was" );
+            Scores.close();
+        }
+    }
+
+    static class LoadOption implements ActionListener {
+        public void actionPerformed(ActionEvent Load) {
+            File file = new File ("Score.txt");
+            Scanner in = null;
+            try {
+                in = new Scanner(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            String  score= in.nextLine();
+
+        }
+    }
+    static class HardOption implements ActionListener {
+        public void actionPerformed(ActionEvent Save) {
+
+        }
+    }
+    static class EasyOption implements ActionListener {
+        public void actionPerformed(ActionEvent Save) {
+
+
+
+        }
+    }
 }

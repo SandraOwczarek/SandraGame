@@ -2,7 +2,7 @@ package com.sandra;
 import java.awt.*;
 import java.util.*;
 
-class Ball extends Rectangle{
+class Ball extends Rectangle  {
 
     Random random;
     int xVelocity;

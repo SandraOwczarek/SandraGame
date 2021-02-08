@@ -21,6 +21,7 @@ class GamePanel extends JPanel implements Runnable{
     Ball ball;
     Score score;
 
+
     GamePanel(){
         newRackets();
         newBall();
@@ -142,5 +143,6 @@ class GamePanel extends JPanel implements Runnable{
             racket2.keyReleased(e);
         }
     }
+
 
 }
